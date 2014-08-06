@@ -31,7 +31,7 @@
     """,
     "init_xml": [],
     'update_xml': ['product_url_view.xml',
-                   #'security/avanzosc_equivalent_product.xml',
+                   'wizard/add_url_images.xml',
                    #'security/ir.model.access.csv',
                    ],
     'demo_xml': [],

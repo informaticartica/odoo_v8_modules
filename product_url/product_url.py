@@ -31,13 +31,12 @@ class product_product(osv.osv):
 	_inherit = 'product.product'
 
 	_columns = {
-		'image_url': fields.selection([('binary','Binary'),
-                                      ('url','URL')],'Image origin'),
+		'image_url': fields.boolean('URL'),
 		'web': fields.char('image url', size=350, help='The image URL'),
 	}
 
 	def onchange_image(self, cr, uid, ids, web, image_url, context=None):
-		if image_url == 'url' and web != False:
+		if image_url == True and web != False:
 			link = web
 			try:
 				photo = base64.encodestring(urllib2.urlopen(link).read())
@@ -48,8 +47,9 @@ class product_product(osv.osv):
 			}
 			return {'value': val}
 		else:
+			
 			return True
 
 
-product_product()
+
 
